@@ -32,31 +32,31 @@ $ul.css("listStyle", "none");
 async function useApi () {
     const $sentence = await getApi();
 
-    const $li = $("<li></li>").appendTo("ul");
+    const $li = $(`<li>${$sentence}</li>`).appendTo("ul");
     $li.addClass("allLi");
     $li.css("padding", "2rem");
     $li.css("border", "1px solid black");
+    $li.css("textAlign", "center");
+    $li.css("display", "flex");
+    $li.css("flexDirection", "column");
 
-    const $secondUl = $("<ul></ul>").appendTo("li");
-    $secondUl.addClass("secondUl");
-
-    const $quote = $(`<li>${$sentence}</li>`).appendTo(".secondUl");
-    $quote.addClass("quotes");
-
-    const $thirstUl = $("<ul></ul>").appendTo(".allLi");
-    $thirstUl.addClass("thirstUl");
-    $thirstUl.css("display", "flex");
-    $thirstUl.css("flexDirection", "column");
-    $thirstUl.css("alignItems", "center");
-    $thirstUl.css("marginLeft", "36.7rem");
-
-    const $up = $(`<button>up</button>`).appendTo(".thirstUl");
+    const $up = $(`<button>up</button>`).appendTo("li");
     $up.addClass("allUp");
+    $up.css("width", "2rem");
+    $up.css("left", "38.2rem")
+    $up.css("position", "relative");
+    $up.css("bottom", "1rem");
 
-    const $down = $(`<button>down</button>`).appendTo(".thirstUl");
+    const $down = $(`<button>down</button>`).appendTo("li");
     $down.addClass("allUp");
+    $down.css("width", "3rem");
+    $down.css("left", "37.7rem")
+    $down.css("position", "relative");
+    $down.css("bottom", "1rem");
 
-    
+   $("ul").each(function() {
+       $(this).css("listStyle", "none");
+   });
 }
 
 useApi()
