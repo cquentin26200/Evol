@@ -29,16 +29,20 @@ async function useApi () {
 
     $up.on("click", function () {
         const $tmp = $(this).parent().children().html();
-        console.log($(this).parent().children().eq(0).text($(this).parent().prev().children().html()))
-        console.log($(this).parent().prev().children().eq(0).text($tmp))
+        $(this).parent().children().eq(0).text($(this).parent().prev().children().html())
+        $(this).parent().prev().children().eq(0).text($tmp)
     })
-
-   
 
     const $down = $(`<button>down</button>`)
     $down.addClass("allUp");
     $down.css("width", "3rem");
     $("li").last().append($down)
+
+    $down.on("click", function() {
+        const $tmp = $(this).parent().children().html();
+        $(this).parent().children().eq(0).text($(this).parent().next().children().html())
+        $(this).parent().next().children().eq(0).text($tmp)
+    })
 
    $("ul").each(function() {
        $(this).css("listStyle", "none");
