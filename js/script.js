@@ -27,7 +27,28 @@ async function useApi () {
     $up.css("width", "2rem");
     $("li").last().append($up)
 
-    
+    $up.on("click", function () {
+        const $tmp = $(this).parent().children().html();
+        console.log($(this).parent().children().eq(0).text($(this).parent().prev().children().html()))
+        console.log($(this).parent().prev().children().eq(0).text($tmp))
+    })
+
+   
+
+    const $down = $(`<button>down</button>`)
+    $down.addClass("allUp");
+    $down.css("width", "3rem");
+    $("li").last().append($down)
+
+   $("ul").each(function() {
+       $(this).css("listStyle", "none");
+   });
+
+   $("main button").each(function() {
+       $(this).css("position", "relative");
+       $(this).css("bottom", "1rem")
+       $(this).css("left", "37.7rem");
+   })   
 }
 
 $("header button").on("click", useApi);
